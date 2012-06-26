@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="js/vendor/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+	<script>
+		Modernizr.load({ test: (!$(window).generatedcontent && !Modernizr.generatedcontent), yep: ['/js/libs/generatedcontent' + (window.sMin || '') + '.js'], complete : function() {
+			/* On IE, the plugin is not finished loading when complete() is called */
+			var i = 0;
+			var f = function() {
+				if (i > 10) { return; }
+				if ($().generatedcontent) {
+					$().generatedcontent();
+				} else {
+					i = i++;
+					setTimeout(function() { f(); }, 1000);
+				}		
+			};
+			f();
+		}
+		});
+	</script>
+</body>
+</html>
